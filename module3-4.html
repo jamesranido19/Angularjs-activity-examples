@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Module 3</title>
+</head>
+<body>
+	<div class="container" data-ng-controller="SimpleController">
+		<h3>Adding a Simple Controller with Module</h3>
+
+	<div class="container">
+
+		<div class="container">
+		Name: <br><input type="text" ng-model="name" /> {{name}}
+		</div>
+
+		<ul>
+    		<li data-ng-repeat="info in friends | filter:name | orderBy:'hobby'"> {{info.name}} - {{info.hobby}}</li>
+		</ul>	
+	</div>
+
+	<script src="../Angularjs-activity-examples/angular.min.js"></script>
+
+
+	<script>
+		var app = angular.module('myApp', []);
+		app.controller('SimpleController', function($scope) {
+   		 	 $scope.friends = [
+				{ name: 'Precious', hobby: 'writing'},
+				{ name: 'Fracil', hobby:'buying'},
+				{ name: 'Cherryl', hobby: 'talking'},
+				{ name: 'Chejie', hobby:'watching'}
+			];
+});
+</script>
+	
+</body>
+</html>
